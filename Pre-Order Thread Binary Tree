@@ -21,7 +21,7 @@ template<class T>
 ThreadTree<T>::ThreadTree(){//构造函数
     root=creat(root);//建立带线索标志的二叉链表
     Node<T> *pre=NULL;//当前访问结点的前驱结点
-    inThread(root,pre);//遍历二叉链表，建立线索
+    preThread(root,pre);//遍历二叉链表，建立线索
 }
 template<class T>
 Node<T>* ThreadTree<T>::creat(Node<T> *bt){//建立带线索标志的二叉链表
@@ -51,8 +51,8 @@ void ThreadTree<T>::preThread(Node<T> *bt,Node<T> *pre){//前序线索化
             pre->rchild=bt;//右孩子指向后继
         }
         pre=bt;//保持pre指向bt的前驱
-        inThread(bt->lchild,pre);//递归左子树线索化
-        inThread(bt->rchild,pre);//递归右子树线索化
+        preThread(bt->lchild,pre);//递归左子树线索化
+        preThread(bt->rchild,pre);//递归右子树线索化
     }
 }
 template<class T>
@@ -74,7 +74,7 @@ void ThreadTree<T>::preOrder(){//遍历
     else{
         Node<T> *p;
         p=root;
-        while(p->ltag==link)//寻找中序遍历序列的第一个结点
+        while(p->ltag==link)//寻找前序遍历序列的第一个结点
             p=p->lchild;
         cout<<p->data;
         while(p->rchild!=NULL){//当结点p存在后继，依次访问其后继
