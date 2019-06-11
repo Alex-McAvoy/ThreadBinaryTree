@@ -11,7 +11,7 @@ public:
     ThreadTree();//构造函数，建立后序线索链表
     ~ThreadTree();//析构函数，释放各结点空间
     Node<T> * findNext(Node<T> *bt);//查找结点bt的后继
-    void postOrder();//中序遍历
+    void postOrder();//后序遍历
 private:
     Node<T> *root;//指向线索链表的头指针
     Node<T> * creat(Node<T> *bt);//构造函数调用，创建带线索标志的二叉链表
@@ -74,7 +74,7 @@ void ThreadTree<T>::postOrder(){//遍历
     else{
         Node<T> *p;
         p=root;
-        while(p->ltag==link)//寻找中序遍历序列的第一个结点
+        while(p->ltag==link)//寻找后序遍历序列的第一个结点
             p=p->lchild;
         cout<<p->data;
         while(p->rchild!=NULL){//当结点p存在后继，依次访问其后继
