@@ -68,7 +68,7 @@ Node<T> * ThreadTree<T>::findNext(Node<T> *bt){//查找结点bt的后继
     return q;
 }
 template<class T>
-void ThreadTree<T>::inOrder(){//中序遍历
+void ThreadTree<T>::inOrder(){//遍历
     if(root==NULL)
         return;
     else{
