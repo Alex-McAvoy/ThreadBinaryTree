@@ -11,7 +11,7 @@ public:
     ThreadTree();//构造函数，建立前序线索链表
     ~ThreadTree();//析构函数，释放各结点空间
     Node<T> * findNext(Node<T> *bt);//查找结点bt的后继
-    void preOrder();//中序遍历
+    void preOrder();//前序遍历
 private:
     Node<T> *root;//指向线索链表的头指针
     Node<T> * creat(Node<T> *bt);//构造函数调用，创建带线索标志的二叉链表
